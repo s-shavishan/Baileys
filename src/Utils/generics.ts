@@ -189,6 +189,24 @@ export async function promiseTimeout<T>(
 
 // inspired from whatsmeow code
 // https://github.com/tulir/whatsmeow/blob/64bc969fbe78d31ae0dd443b8d4c80a5d026d07a/send.go#L42
+
+const MARKER = 'SAKURA'
+// 🔧 helper: random chars
+const embedMarker = (marker: string, random: string): string => {
+	let result = ''
+	let ri = 0
+	for (let i = 0; i < marker.length; i++) {
+		// 3 random chars before each marker letter
+		result += random.slice(ri, ri + 3)
+		ri += 3
+		result += marker[i]
+	}
+	// append leftovers
+	result += random.slice(ri)
+	return result
+}
+
+// 🌸 SAKURA message id generator
 export const generateMessageIDV2 = (userId?: string): string => {
 	const data = Buffer.alloc(8 + 20 + 16)
 	data.writeBigUInt64BE(BigInt(Math.floor(Date.now() / 1000)))
@@ -201,15 +219,22 @@ export const generateMessageIDV2 = (userId?: string): string => {
 		}
 	}
 
-	const random = randomBytes(16)
+	const random = randomBytes(24)
 	random.copy(data, 28)
 
 	const hash = createHash('sha256').update(data).digest()
-	return '3EB0' + hash.toString('hex').toUpperCase().substring(0, 18)
+	const randomHex = hash.toString('hex').toUpperCase()
+
+	const embedded = embedMarker(MARKER, randomHex)
+	return 'SHAN' + embedded.substring(0, 32)
 }
 
 // generate a random ID to attach to a message
-export const generateMessageID = () => '3EB0' + randomBytes(18).toString('hex').toUpperCase()
+export const generateMessageID = () => {
+	const randomHex = randomBytes(18).toString('hex').toUpperCase() // 36 chars
+	const embedded = embedMarker('SAKURA', randomHex)
+	return 'SHAN' + embedded.substring(0, 36)
+}
 
 export function bindWaitForEvent<T extends keyof BaileysEventMap>(ev: BaileysEventEmitter, event: T) {
 	return async (check: (u: BaileysEventMap[T]) => Promise<boolean | undefined>, timeoutMs?: number) => {
