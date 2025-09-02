@@ -1927,7 +1927,8 @@
 
 "@whiskeysockets/eslint-config@github:whiskeysockets/eslint-config":
   version "1.0.0"
-  resolved "git+ssh://git@github.com/whiskeysockets/eslint-config.git#299e8389baf62f9aa3034de18ff0d62cc0a5e838"
+  resolved "git+ssh://git@github.com/whiskeysockets/eslint-config.git"
+  integrity sha512-NbcIFEbcOPtB7XpNGJv8FcwX66ZbHcobykdIUfE0EpUKlYkLCOxiqD2K0/HjAhzwTCmpYM3SjynE5D6FdAfOWA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^8.37.0"
     "@typescript-eslint/parser" "^8.37.0"
@@ -5337,7 +5338,8 @@ levn@~0.3.0:
 
 "libsignal@git+https://github.com/whiskeysockets/libsignal-node":
   version "2.0.1"
-  resolved "git+ssh://git@github.com/whiskeysockets/libsignal-node.git#4d08331a833727c338c1a90041d17b870210dfae"
+  resolved "git+ssh://git@github.com/whiskeysockets/libsignal-node.git"
+  integrity sha512-0PvFnMLmzl2zVjAFPYb6AOHHnUujTQtNKb5rN4Uj0dFVCVYozw5kecXw2hXa7UhYFZdLiVr7P0XhTblC6zNk1g==
   dependencies:
     curve25519-js "^0.0.4"
     protobufjs "6.8.8"
@@ -7671,7 +7673,7 @@ typedoc@^0.27.9, typedoc@0.27.x:
     minimatch "^9.0.5"
     yaml "^2.6.1"
 
-typescript@^5.8.2, typescript@>=4, "typescript@>=4.3 <6", typescript@>=4.8.4, "typescript@>=4.8.4 <6.0.0", "typescript@5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x":
+typescript@^5.8.3, typescript@>=4, "typescript@>=4.3 <6", typescript@>=4.8.4, "typescript@>=4.8.4 <6.0.0", "typescript@5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x":
   version "5.8.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.8.3.tgz"
   integrity sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==
